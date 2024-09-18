@@ -1,0 +1,91 @@
+<div>
+
+  <div id="niveis" class="d-flex justify-content-center mt-4 gap-2">
+    <div>
+      <button (click)="selecionarNivel('Fácil')" class="btn btn-lg"
+        [ngClass]="{'btn-primary': nivelSelecionado === 'Fácil', 'btn-outline-primary': nivelSelecionado !== 'Fácil'}">
+        Fácil
+      </button>
+    </div>
+    <div>
+      <button (click)="selecionarNivel('Médio')" class="btn btn-lg"
+        [ngClass]="{'btn-primary': nivelSelecionado === 'Médio', 'btn-outline-primary': nivelSelecionado !== 'Médio'}">
+        Médio
+      </button>
+    </div>
+    <div>
+      <button (click)="selecionarNivel('Difícil')" class="btn btn-lg"
+        [ngClass]="{'btn-primary': nivelSelecionado === 'Difícil', 'btn-outline-primary': nivelSelecionado !== 'Difícil'}">
+        Difícil
+      </button>
+    </div>
+  </div>
+
+  <div id="tentativas" class="d-flex flex-wrap justify-content-center mt-4">
+    <label class="fw-bold fs-1">{{ numeroTentativas }} Tentativas</label>
+  </div>
+
+  <div id="inputs" class="d-flex justify-content-around mt-4">
+
+    <div class="p-2">
+      <input [(ngModel)]="inputNumeroMenor" class="form-control rounded-3 text-center border-black fw-bold fs-1"
+        disabled />
+    </div>
+
+    <div class="p-2 fw-bold fs-1">
+      &lt;
+    </div>
+
+    <div class="p-2">
+      <input [(ngModel)]="inputNumeroInformado" type="number"
+        class="form-control rounded-3 text-center border-5 fw-bold fs-1"
+        [ngClass]="{'border-success': jogadorAcertou, 'border-black': !jogadorAcertou }" disabled />
+    </div>
+
+    <div class="p-2 fw-bold fs-1">
+      &lt;
+    </div>
+
+    <div class="p-2">
+      <input [(ngModel)]="inputNumeroMaior" class="form-control rounded-3 text-center border-black fw-bold fs-1"
+        disabled />
+    </div>
+
+  </div>
+
+  @if (numerosEscolhidos.length > 0) {
+  <div id="numerosEscolhidos" class="d-flex flex-wrap align-items-center justify-content-start mt-4 px-4 gap-2 ">
+    
+      <label class="fw-semibold fs-5">Números já escolhidos:</label>    
+    
+      @for (item of numerosEscolhidos; track $index) {
+      <label class="badge rounded-pill bg-warning text-dark" >{{ item }}</label>
+      }    
+
+  </div>
+  }
+
+  <div id="mensagens" class="d-flex justify-content-center mt-4 text-center">
+    <label class="fw-bold fs-1 "> {{ mensagem }}</label>
+  </div>
+
+  <div id="botoes" class="d-flex justify-content-center gap-4 mt-4">
+    <button (click)="chutar()" class="btn btn-primary btn-lg" [disabled]="jogoEncerrado">Chutar</button>
+    <button (click)="novoJogo()" class="btn btn-info btn-lg">Novo jogo</button>
+  </div>
+
+  <div id="numeros" class="d-flex flex-wrap justify-content-center gap-2 mt-4">
+
+    @for (item of numerosBotoes; track $index) {
+    <button (click)="selecionarNumero($event)" class="btn btn-primary">
+      {{ $index }}
+    </button>
+    }
+
+  </div>
+
+  <div id="rodapé" class="d-flex gap-2 mt-4">{{ numeroSecreto }}
+
+  </div>
+
+</div>
