@@ -104,7 +104,11 @@
           "builder": "@angular-devkit/build-angular:extract-i18n"
         },
         "deploy": {
-          "builder": "angular-cli-ghpages:deploy"
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "baseHref": "",
+            "repo": "https://github.com/alexandre-rech-lages/advinhador-numeros-bot.git"            
+          }
         }
       }
     }
