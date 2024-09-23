@@ -55,12 +55,12 @@
 
   @if (numerosEscolhidos.length > 0) {
   <div id="numerosEscolhidos" class="d-flex flex-wrap align-items-center justify-content-start mt-4 px-4 gap-2 ">
-    
-      <label class="fw-semibold fs-5">Números já escolhidos:</label>    
-    
-      @for (item of numerosEscolhidos; track $index) {
-      <label class="badge rounded-pill bg-warning text-dark" >{{ item }}</label>
-      }    
+
+    <label class="fw-semibold fs-5">Números já escolhidos:</label>
+
+    @for (item of numerosEscolhidos; track $index) {
+    <label class="badge rounded-pill bg-warning text-dark">{{ item }}</label>
+    }
 
   </div>
   }
@@ -84,7 +84,7 @@
 
   </div>
 
-  <div id="rodapé" class="d-flex gap-2 mt-4">{{ numeroSecreto }}
+  <div id="rodapé" class="d-flex gap-2 mt-4">
 
   </div>
 
